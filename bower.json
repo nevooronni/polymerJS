@@ -5,7 +5,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "app-layout": "^2.1.1",
-    "paper-button": "^2.1.1"
+    "paper-button": "^2.1.1",
+    "paper-styles": "^2.1.0"
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^6.0.0",
