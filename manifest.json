@@ -1,0 +1,7 @@
+{
+  "name": "intertel",
+  "short_name": "intertel",
+  "description": "javascript sorting application",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="intertel-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class IntertelApp extends Polymer.Element {
+      static get is() { return 'intertel-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'intertel-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(IntertelApp.is, IntertelApp);
+  </script>
+</dom-module>
