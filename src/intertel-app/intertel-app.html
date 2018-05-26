@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/app-layout/app-layout.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 
 <dom-module id="intertel-app">
   <template>
@@ -13,6 +14,12 @@
         <div main-title>Whose function is this!</div>
       </app-toolbar>
     </app-header>
+    <h3>Click the button to sort the Dictionary in ascending order</h3>
+    <h3>Your Sorted Dictionary</h3>
+    <p>Dictionary = {'34': 'thirty-four', '90': 'ninety', '91': 'ninety-one', '21': 'twenty-one', '61': 'sixty-one', '9': 'nine', '2': 'two', '6': 'six', '3': 'three ', '8': 'eight', '80': 'eighty', '81': 'eighty-one', 'Ninety-Nine': '99', 'nine-hundred':'900'}</p>
+    <div id="answer-button-container">
+      <paper-button id="tyit" class="answer">Try it!</paper-button>
+    </div>
   </template>
 
   <script>
@@ -24,10 +31,7 @@
       static get is() { return 'intertel-app'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'intertel-app'
-          }
+          
         };
       }
     }
