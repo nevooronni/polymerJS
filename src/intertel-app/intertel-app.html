@@ -32,12 +32,7 @@
         color: white;
         margin: 20px 0;
       }
-      iron-image {
-        border: solid;
-        width: 100%;
-        --iron-image-width: 100%;
-         background-color: white;
-      }
+      
       #flag-image-container {
         max-width: 600px;
         width: 100%;
@@ -50,23 +45,67 @@
       }
 
       #toolbar {
-        margin-top: 200px;
+        margin-top: 130px;
         padding-right: 50px;
         background-color: #2885C4;
+        width: 1134px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 140px;
+        padding-bottom: 12px;
+      }
+
+      #tryit{
+        background-color: #A5F883;
+        color: #003A61;
+        cursor: pointer;
+        font-weight: bold;
+        width: 200px;
+        height: 60px;
+        float: left;
+        margin-right: 520px;
+
+      }
+
+      #container {
+        background-color: #57B3F1;
+        width: 1140px;
+        height: 300px;
+        margin-top: 0px;
+        margin-left: 140px;
+        padding-top: 50px;
+        padding-left: 60px;
+      }
+
+      #p-color {
+        color: #fff;
+        text-align: left;
+        margin-bottom: 45px;
+      }
+
+
+      #answ {
+        color: #fff;
       }
     </style>
     <app-header>
       <app-toolbar id="toolbar">
         <div main-title>Click the button to sort the Dictionary in ascending order</div>
-        <h3>Your Sorted Dictionary</h3>
+        <h4>Your Sorted Dictionary</h4>
       </app-toolbar>
     </app-header>
     <sample-content size="10"></sample-content>
-     <p>Dictionary = {'34': 'thirty-four', '90': 'ninety', '91': 'ninety-one', '21': 'twenty-one', '61': 'sixty-one', '9': 'nine', '2': 'two', '6': 'six', '3': 'three ', '8': 'eight', '80': 'eighty', '81': 'eighty-one', 'Ninety-Nine': '99', 'nine-hundred':'900'}</p>
-    
+    <app-drawer-layout>
+    <div id="container">
+    <p id="p-color">Dictionary = {'34': 'thirty-four', '90': 'ninety', '91': 'ninety-one', '21': twenty-one', '61':<br> 'sixty-one', '9': 'nine', '2': 'two', '6': 'six', '3': 'three ', '8': 'eight', '80': 'eighty', '81':<br> 'eighty-one', 'Ninety-Nine': '99', 'nine-hundred':'900'}</p>
     <div id="answer-button-container">
-      <paper-button id="tryit" class="answer">Try it!</paper-button>
+      <paper-button id="tryit">Try it!</paper-button>
     </div>
+    <div id="sort-answer">
+      <p id="answ"></p>
+    </div>
+    </div>
+   
   </template>
 
   <script>
