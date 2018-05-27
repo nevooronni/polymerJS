@@ -1,0 +1,182 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-layout/app-layout.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+
+<dom-module id="intertel-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-family: Roboto, Noto, sans-serif;
+      }
+      paper-button {
+        color: white;
+      }
+      paper-button.another {
+        background: var(--paper-blue-500);
+        width: 100%;
+      }
+      paper-button.another:hover {
+        background: var(--paper-light-blue-500);
+      }
+      paper-button.answer {
+        background: var(--paper-purple-500);
+        flex-grow: 1;
+      }
+      paper-button.answer:hover {
+        background: var(--paper-pink-500);
+      }
+      app-toolbar {
+        background-color: var(--paper-blue-500);
+        color: white;
+        margin: 20px 0;
+      }
+      
+      #flag-image-container {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      #answer-button-container {
+        display: flex; /* or inline-flex */
+        flex-flow: row wrap;
+        justify-content:space-around;
+      }
+
+      #toolbar {
+        margin-top: 130px;
+        padding-right: 50px;
+        background-color: #2885C4;
+        width: 1134px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 140px;
+        padding-bottom: 12px;
+      }
+
+      #tryit{
+        background-color: #A5F883;
+        color: #003A61;
+        cursor: pointer;
+        font-weight: bold;
+        width: 230px;
+        height: 60px;
+        float: left;
+        margin-right: 600px;
+
+      }
+
+      #container {
+        background-color: #57B3F1;
+        width: 1140px;
+        height: 300px;
+        margin-top: 0px;
+        margin-left: 140px;
+        padding-top: 50px;
+        padding-left: 60px;
+      }
+
+      #p-color {
+        color: #fff;
+        text-align: left;
+        margin-bottom: 65px;
+      }
+
+      #sort-answer {
+        background-color: #2E9CE6;
+        height: 140px;
+        width: 500px;
+        float: right;
+        margin-right: 35px;
+        margin-top:-180px;
+      }
+
+
+      #answ {
+        color: #fff;
+        text-align: center;
+      }
+    </style>
+    <app-header>
+      <app-toolbar id="toolbar">
+        <div main-title="">Click the button to sort the Dictionary in ascending order</div>
+        <h4>Your Sorted Dictionary</h4>
+      </app-toolbar>
+    </app-header>
+    <sample-content size="10"></sample-content>
+    <app-drawer-layout>
+    <div id="container">
+    <p id="p-color">Dictionary = {'34': 'thirty-four', '90': 'ninety', '91': 'ninety-one', '21': twenty-one', '61':<br> 'sixty-one', '9': 'nine', '2': 'two', '6': 'six', '3': 'three ', '8': 'eight', '80': 'eighty', '81':<br> 'eighty-one', 'Ninety-Nine': '99', 'nine-hundred':'900'}</p>
+    <div id="answer-button-container">
+      <paper-button id="tryit" on-click="_sortDictionary">Try it!</paper-button>
+    </div>
+    <div id="sort-answer">
+      <p id="answ">[[answer]]</p>
+    </div>
+    </div>
+  </app-drawer-layout></template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class IntertelApp extends Polymer.Element {
+      static get is() { return 'intertel-app'; }
+      static get properties() {
+        return {
+          answer: {
+            type: String,
+            value: ''
+          }
+        };
+      }
+      _sortDictionary() {
+        let Dictionary = {'34': 'thirty-four', '90': 'ninety',
+          '91': 'ninety-one','21': 'twenty-one',
+          '61': 'sixty-one', '9': 'nine',
+          '2': 'two', '6': 'six', '3': 'three ',
+          '8': 'eight', '80': 'eighty', '81': 'eighty-one',
+          'Ninety-Nine':  '99', 'nine-hundred':  '900'
+        } 
+        // console.log(Dictionary);
+
+        //empty dictionary for final output
+        let sortedDictionary = {}
+
+        //get all the keys of Dictionary and put them in an array
+        let keys = Object.keys(Dictionary);
+        // console.log(keys);
+
+        let i = -1;
+        // console.log(i);
+
+        //length of keys in dictionary
+        let len = keys.length;
+        // console.log(len);
+
+        //sort the keys in ascending order
+        keys.sort();
+        // console.log(keys);
+
+        while(++i < len) {
+          sortedDictionary[keys[i]] = Dictionary[keys[i]];
+        }
+        console.log(sortedDictionary);
+        let sortedResult = [];
+        for (let key in sortedDictionary) {
+          if (sortedDictionary.hasOwnProperty(key)) 
+            sortedResult.push([key, sortedDictionary[key]]);
+        }
+        console.log(sortedResult);
+        this.answer = sortedResult;
+      }
+      // _restart() {
+      //   window.location.reload();
+      // }
+    }
+
+    window.customElements.define(IntertelApp.is, IntertelApp);
+  </script>
+</dom-module>
