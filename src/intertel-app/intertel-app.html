@@ -112,7 +112,7 @@
       <paper-button id="tryit" on-click="_sortDictionary">Try it!</paper-button>
     </div>
     <div id="sort-answer">
-      <p id="answ"></p>
+      <p id="answ">[[answer]]</p>
     </div>
     </div>
    
@@ -127,11 +127,46 @@
       static get is() { return 'intertel-app'; }
       static get properties() {
         return {
-         
+          answer: {
+            type: String,
+            value: ''
+          }
         };
       }
-      _sortDictionary(event) {
-        
+      _sortDictionary() {
+        let Dictionary = {'34': 'thirty-four', '90': 'ninety',
+          '91': 'ninety-one','21': 'twenty-one',
+          '61': 'sixty-one', '9': 'nine',
+          '2': 'two', '6': 'six', '3': 'three ',
+          '8': 'eight', '80': 'eighty', '81': 'eighty-one',
+          'Ninety-Nine':  '99', 'nine-hundred':  '900'
+        } 
+        // console.log(Dictionary);
+        let sortedDictionary = {}
+
+        let keys = Object.keys(Dictionary);
+        // console.log(keys);
+
+        let i = -1;
+        // console.log(i);
+
+        let len = keys.length;
+        // console.log(len);
+
+        keys.sort();
+        // console.log(keys);
+
+        while(++i < len) {
+          sortedDictionary[keys[i]] = Dictionary[keys[i]];
+        }
+        console.log(sortedDictionary);
+        let sortedResult = [];
+        for (let key in sortedDictionary) {
+          if (sortedDictionary.hasOwnProperty(key)) 
+            sortedResult.push([key, sortedDictionary[key]]);
+        }
+        console.log(sortedResult);
+        this.answer = sortedResult;
       }
     }
 
