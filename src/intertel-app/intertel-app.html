@@ -115,7 +115,6 @@
       <p id="answ">[[answer]]</p>
     </div>
     </div>
-   
   </template>
 
   <script>
@@ -142,17 +141,22 @@
           'Ninety-Nine':  '99', 'nine-hundred':  '900'
         } 
         // console.log(Dictionary);
+
+        //empty dictionary for final output
         let sortedDictionary = {}
 
+        //get all the keys of Dictionary and put them in an array
         let keys = Object.keys(Dictionary);
         // console.log(keys);
 
         let i = -1;
         // console.log(i);
 
+        //length of keys in dictionary
         let len = keys.length;
         // console.log(len);
 
+        //sort the keys in ascending order
         keys.sort();
         // console.log(keys);
 
@@ -168,6 +172,9 @@
         console.log(sortedResult);
         this.answer = sortedResult;
       }
+      // _restart() {
+      //   window.location.reload();
+      // }
     }
 
     window.customElements.define(IntertelApp.is, IntertelApp);

@@ -1,7 +1,6 @@
 {
-  "lint": {
-    "rules": [
-      "polymer-2"
-    ]
-  }
+ "sources": [
+   "data/*",
+   "data/svg/*"
+ ]
 }
