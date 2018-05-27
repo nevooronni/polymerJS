@@ -112,7 +112,7 @@
       <paper-button id="tryit">Try it!</paper-button>
     </div>
     <div id="sort-answer">
-      <p id="answ">'34': 'thirty-four', '90': 'ninety', '91': 'ninety-one', '21': twenty-one', '61':<br> 'sixty-one', '9': 'nine', '2': 'two', '6': 'six', '3': 'three ', '8': 'eight', '80': 'eighty', '81':<br> 'eighty-one', 'Ninety-Nine': '99', 'nine-hundred':'900'</p>
+      <p id="answ">[[answer]]</p>
     </div>
     </div>
    
@@ -127,7 +127,10 @@
       static get is() { return 'intertel-app'; }
       static get properties() {
         return {
-          
+          answer: {
+            type: String,
+            value: "'34': 'thirty-four', '90': 'ninety', '91': 'ninety-one', '21': twenty-one', '61': 'sixty-one', '9': 'nine', '2': 'two', '6': 'six', '3': 'three ', '8': 'eight', '80': 'eighty', '81':'eighty-one', 'Ninety-Nine': '99', 'nine-hundred':'900'"
+          }
         };
       }
     }
